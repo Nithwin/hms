@@ -72,7 +72,7 @@
 	justify-content: center;
 	align-items: center;
 	padding: 40px;
-	border-radius: 10px;
+	border-radius: 4px;
 	box-shadow: 0 15px 35px rgba(0,0,0,9);
 }
 .sec .signin .content
@@ -159,7 +159,6 @@
 	font-size: 1.35em;
 	letter-spacing: 0.05em;
 	width: 100%;
-	border-radius: 5px;
 	border: none;
 	cursor: pointer;
 }

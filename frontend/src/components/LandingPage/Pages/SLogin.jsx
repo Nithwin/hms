@@ -1,12 +1,12 @@
-import styles from './Login.module.css'
+import styles from './SLogin.module.css'
 import { useNavigate } from 'react-router-dom';
-function User() {
+export default function SLogin() {
   const navigate = useNavigate();
    const routeChange = () => {
         const u_name = document.getElementById('username').value.toLowerCase();
         const pass_word = document.getElementById('password').value.toLowerCase();
         if (u_name === 'nithwin' && pass_word === 'nithwin'){
-          let path = '/home';
+          let path = '/bms/home';
           navigate(path);
         }
 
@@ -280,7 +280,7 @@ function User() {
 
 <div className={styles.signin}>
   <div className={styles.content}>
-    <h2>Student Login</h2>
+    <h2 className='font-bold'>Student Login</h2>
     <div className={styles.form}>
       <div className={styles.inputBox}>
         <input type="text" id='username' required/>
@@ -302,5 +302,4 @@ function User() {
   </>);
 }
 
-export default User
 
