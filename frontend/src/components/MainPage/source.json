@@ -1,0 +1,11 @@
+[
+  {
+    "label":"Present",
+    "value":70
+  },
+  {
+    "label":"Absent",
+    "value":30
+  }
+
+]

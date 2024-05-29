@@ -8,25 +8,18 @@ export default function SLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const routeChange = async () => {
-    try {
-      const response = await axios.post('http://localhost:3000/login', {
-        username: username.toLowerCase(),
-        password: password.toLowerCase()
-      });
-
-      if (response.data.authenticated) {
-        navigate('/bms/');
-      } else {
-        // Handle login failure
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  function handleEvent(event) {
+    event.preventDefault();
+    axios.post('http://localhost:8081/login',{username,password})
+    .then(res=>console.log(res))
+    .catch(err => console.log(err))
+  }
 
   return(
-    <>
+<>
+
+<div className={styles.body}>
+  <section className={styles.sec}>
 
 <span></span>
 <span></span>
@@ -288,28 +281,28 @@ export default function SLogin() {
 <span></span>
 <span></span>
 <span></span>
-      <div className={styles.body}>
-        <section className={styles.sec}>
           <div className={styles.signin}>
             <div className={styles.content}>
               <h2 className='font-bold'>Student Login</h2>
-              <div className={styles.form}>
-                <div className={styles.inputBox}>
-                  <input type="text" id='username' required onChange={e => setUsername(e.target.value)} />
+              <form className={styles.form} onSubmit={handleEvent}>
+                <div className={styles.inputBox} >
+                  <input type="text" id='username' name='username' required onChange={e => setUsername(e.target.value)} />
                   <i>Username</i>
                 </div>
                 <div className={styles.inputBox}>
-                  <input type="password" id='password' required onChange={e => setPassword(e.target.value)} />
+                  <input type="password" id='password' name='password' required onChange={e => setPassword(e.target.value)} />
                   <i>Password</i>
                 </div>
                 <div className={styles.inputBox}>
-                  <button onClick={routeChange}>Login</button>
+                  <button type='submit'>Login</button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
-        </section>
-      </div>
-    </>
+
+  </section>
+</div>
+
+</>
   );
 }

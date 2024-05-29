@@ -8,6 +8,10 @@ import SLogin from './components/LandingPage/Pages/SLogin';
 import ALogin from './components/LandingPage/Pages/ALogin';
 import MHome from './components/MainPage/Home'
 import SideBar from './components/MainPage/NavBar'
+import Attendence from './components/MainPage/Attendence'
+import Leave from './components/MainPage/Leave'
+import Mess from './components/MainPage/Mess'
+import Suggestion from './components/MainPage/Suggestion'
 function App() {
   return (
     <Router>
@@ -19,7 +23,11 @@ function App() {
         <Route path="/about" element={<><Navbar /><About /></>} />
       </Routes>
       <Routes>
-        <Route path="/bms" element={<><SideBar/> <MHome/></>} />
+        <Route path="/hms" element={<div className='flex h-screen'><SideBar/> <MHome/></div>} />
+        <Route path="/hms/attend" element={<div className='flex h-screen'><SideBar/> <Attendence/></div>} />
+        <Route path="/hms/leave" element={<div className='flex h-screen'><SideBar/> <Leave/></div>} />
+        <Route path="/hms/mess" element={<div className='flex h-screen'><SideBar/> <Mess/></div>} />
+        <Route path="/hms/suggestion" element={<div className='flex h-screen'><SideBar/> <Suggestion/></div>} />
       </Routes>
     </Router>
   );
