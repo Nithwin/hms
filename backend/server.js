@@ -9,14 +9,17 @@ app.use(cors());
 const db = mysql.createConnection({
   host:"localhost",
   user:"root",
-  password:"",
+  password:"root",
   database:"hostel"
 })
 
 app.post('/login',(req,res)=>{
   const sql = "SELECT * FROM login WHERE u_name = ? AND u_password = ? ";
   db.query(sql,[req.body.username,req.body.password],(err,data)=>{
-    if(err) {return res.json("error")};
+    if(err) {
+      console.error(err);
+      return res.json("error");
+    }
 
     if(data.length > 0){
       return res.json("Login Succes...")

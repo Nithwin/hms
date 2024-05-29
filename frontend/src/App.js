@@ -12,6 +12,7 @@ import Attendence from './components/MainPage/Attendence'
 import Leave from './components/MainPage/Leave'
 import Mess from './components/MainPage/Mess'
 import Suggestion from './components/MainPage/Suggestion'
+import Complaint from './components/MainPage/Complains.jsx'
 function App() {
   return (
     <Router>
@@ -28,6 +29,7 @@ function App() {
         <Route path="/hms/leave" element={<div className='flex h-screen'><SideBar/> <Leave/></div>} />
         <Route path="/hms/mess" element={<div className='flex h-screen'><SideBar/> <Mess/></div>} />
         <Route path="/hms/suggestion" element={<div className='flex h-screen'><SideBar/> <Suggestion/></div>} />
+        <Route path="/hms/complaint" element={<div className='flex h-screen'><SideBar/> <Complaint/></div>} />
       </Routes>
     </Router>
   );

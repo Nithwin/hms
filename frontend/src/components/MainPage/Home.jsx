@@ -21,6 +21,7 @@ export default function Home(){
     <div className="w-64 h-80 "> {/* Change the size here */}
     <Attend/>
 </div>
+
     </div>
   </section>);
 }
