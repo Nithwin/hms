@@ -1,11 +1,6 @@
-import React, { useState,useEffect, useContext } from "react";
+import React, { useState,useEffect } from "react";
 import Attend from './Attend'
-import axios from 'axios';
-
-import { UserContext } from "./UserContext";
 export default function Home(){
-  const {username} = useContext(UserContext);
-
   let [date,setDate] = useState(new Date());
   useEffect(() => {
     const timer = setInterval(() => {
@@ -16,17 +11,14 @@ export default function Home(){
       clearInterval(timer);
     };
   }, []);
-
-
-
   return(
-    <section className="text-white px-5 m-3 rounded-xl bg-[#000365] py-7 flex flex-col w-5/6">
+    <section className="text-white px-5 m-3 rounded-xl bg-[#000365] py-7 flex flex-col w-4/5">
     <div className="flex justify-between bg-black px-5 py-5 rounded-xl font-bold ">
       <p>{date.toDateString()}</p>
       <p>{date.toLocaleTimeString()}</p>
     </div>
     <div className="mx-3 mt-10">
-      <p className="font-bold text-5xl">Welcome <span className="bg-clip-text text-transparent bg-gradient-to-tr from-[#ae00ff] to-[#fc0a0a] ">{username}</span> !</p>
+      <p className="font-bold text-5xl">Welcome <span className="text-purple-500">Admin</span> !</p>
     </div >
     <div className="flex p-10 justify-between px-32">
 

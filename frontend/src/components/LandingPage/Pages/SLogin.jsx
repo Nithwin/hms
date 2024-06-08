@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import styles from './SLogin.module.css'
 import { useNavigate } from 'react-router-dom';
 import Popup from 'reactjs-popup'
+import { UserContext } from '../../MainPage/UserContext';
 export default function SLogin() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
+  const { setUsername } = useContext(UserContext);
+  const [username, setUsernameLocal] = useState('');
   const [password, setPassword] = useState('');
   const [isOpenS, setIsOpenS] = useState(false);
   const [isOpenF, setIsOpenF] = useState(false);
@@ -15,6 +17,7 @@ export default function SLogin() {
       .then(res => {
         console.log(res);
         if(res.data === "Login Succes...") {
+          setUsername(username);
           setIsOpenS(true); // Open the popup
         } else {
           setIsOpenF(true);
@@ -292,12 +295,13 @@ export default function SLogin() {
 <span></span>
 <span></span>
 <span></span>
+
           <div className={styles.signin}>
             <div className={styles.content}>
               <h2 className='font-bold'>Student Login</h2>
               <form className={styles.form} onSubmit={handleEvent}>
                 <div className={styles.inputBox} >
-                  <input type="text" id='username' name='username' required onChange={e => setUsername(e.target.value)} />
+                  <input type="text" id='username' name='username' required onChange={e => setUsernameLocal(e.target.value)} />
                   <i>Username</i>
                 </div>
                 <div className={styles.inputBox}>

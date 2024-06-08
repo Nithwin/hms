@@ -35,7 +35,7 @@ export default function Attend(){
               text: 'Attendance Chart'
             },
             datalabels:{
-              color:'blue',
+              color:'white',
 
             formatter: (value, context) => {
               return context.chart.data.labels[context.dataIndex];
